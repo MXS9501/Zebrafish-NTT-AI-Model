@@ -1,0 +1,5 @@
+train: /D/Test_File/Code/YOLOv11/dataset/images/train
+val: /D/Test_File/Code/YOLOv11/dataset/images/val
+
+names:
+  - zebrafish
