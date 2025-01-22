@@ -76,7 +76,7 @@ def detect_black_dashed_line(image):
 
     plt.show(block=False)  # 不阻塞程序执行
     plt.pause(0.1)
-    time.sleep(0.1)  # 显示 0.5 秒
+    time.sleep(0.5)  # 显示 0.5 秒
     plt.close()  # 关闭图像显示窗口
 
 
