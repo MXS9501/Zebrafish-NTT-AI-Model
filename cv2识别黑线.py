@@ -16,13 +16,13 @@ def detect_black_dashed_line(image):
     # 将图像转换为灰度图
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     # 使用 Canny 边缘检测算法检测图像中的边缘
-    edges = cv2.Canny(gray, 200, 300)
+    edges = cv2.Canny(gray, 200, 300) #根据测试样本订为200，300
     # 使用霍夫变换检测直线
     lines = cv2.HoughLinesP(edges, 1, np.pi / 180, 100, minLineLength=100, maxLineGap=50)
 
     if lines is not None:
         # 定义一个最小直线长度阈值，用于过滤短直线
-        min_line_length_threshold = 500  # 可根据实际情况调整
+        min_line_length_threshold = 500  # 可根据实际情况调整，测试样本定为500
         filtered_lines = []
         for line in lines:
             x1, y1, x2, y2 = line[0]
