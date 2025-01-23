@@ -22,7 +22,7 @@ def detect_black_dashed_line(image):
 
     if lines is not None:
         # 定义一个最小直线长度阈值，用于过滤短直线
-        min_line_length_threshold = 500  # 可根据实际情况调整，测试样本定为500
+        min_line_length_threshold = 400  # 可根据实际情况调整，测试样本定为500
         filtered_lines = []
         for line in lines:
             x1, y1, x2, y2 = line[0]
@@ -76,12 +76,12 @@ def detect_black_dashed_line(image):
 
     plt.show(block=False)  # 不阻塞程序执行
     plt.pause(0.1)
-    time.sleep(1)  # 显示 0.5 秒
+    time.sleep(2)  # 显示 0.5 秒
     plt.close()  # 关闭图像显示窗口
 
 
 def main():
-    folder_path = 'D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-1-300'  # 请将此路径替换为你自己的文件夹路径
+    folder_path = 'D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-3-300'  # 请将此路径替换为你自己的文件夹路径
     for filename in os.listdir(folder_path):
         if filename.endswith('.jpg') or filename.endswith('.png'):  # 可以添加更多图像文件的后缀
             image_path = os.path.join(folder_path, filename)
