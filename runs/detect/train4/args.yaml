@@ -2,10 +2,10 @@ task: detect
 mode: train
 model: yolo11n.yaml
 data: D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset.yaml
-epochs: 10
+epochs: 100
 time: null
 patience: 100
-batch: 15
+batch: 16
 imgsz: 640
 save: true
 save_period: -1

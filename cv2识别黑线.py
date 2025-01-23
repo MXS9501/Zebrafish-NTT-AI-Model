@@ -34,14 +34,14 @@ def detect_black_dashed_line(image):
         for line in filtered_lines:
             x1, y1, x2, y2 = line[0]
             # 绘制黑色虚线，这里使用 cv2.LINE_4 绘制虚线，你可以根据需要调整线条类型
-            cv2.line(image_rgb, (x1, y1), (x2, y2), (0, 0, 225), 1, cv2.LINE_4)
+            cv2.line(image_rgb, (x1, y1), (x2, y2), (0, 0, 225), 2, cv2.LINE_4)
             # 计算包围直线的矩形坐标
             x_min = min(x1, x2)
             x_max = max(x1, x2)
             y_min = min(y1, y2)
             y_max = max(y1, y2)
             # 绘制红色线
-            cv2.line(image_bgr, (x_min, y_min), (x_max, y_max), (0, 0, 255), 1)
+            cv2.line(image_bgr, (x_min, y_min), (x_max, y_max), (0, 0, 255), 2)
 
     # 显示原始图像
     plt.figure(figsize=(12, 8))
@@ -65,7 +65,7 @@ def detect_black_dashed_line(image):
     # 显示带有检测到的直线的图像
     if lines is not None:
         plt.subplot(2, 2, 4)
-        plt.imshow(cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB))
+        plt.imshow(cv2.cvtColor(image_rgb, cv2.COLOR_BGR2RGB))
         plt.title('Detected Dashed Lines with Red Bounding Box')
         plt.axis('off')
     else:
@@ -76,12 +76,12 @@ def detect_black_dashed_line(image):
 
     plt.show(block=False)  # 不阻塞程序执行
     plt.pause(0.1)
-    time.sleep(2)  # 显示 0.5 秒
+    time.sleep(1)  # 显示 0.5 秒
     plt.close()  # 关闭图像显示窗口
 
 
 def main():
-    folder_path = 'D:\\Test_File\\Line_Test'  # 请将此路径替换为你自己的文件夹路径
+    folder_path = 'D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-1-300'  # 请将此路径替换为你自己的文件夹路径
     for filename in os.listdir(folder_path):
         if filename.endswith('.jpg') or filename.endswith('.png'):  # 可以添加更多图像文件的后缀
             image_path = os.path.join(folder_path, filename)

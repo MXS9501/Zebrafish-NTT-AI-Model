@@ -12,7 +12,7 @@
 path: "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset" # dataset root dir
 train: "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/train" # train images (relative to 'path') 4 images
 val: "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/val" # val images (relative to 'path') 4 images
-test: "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test" # test images (optional)
+# test: "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test" # test images (optional)
 
 # Classes
 names:
