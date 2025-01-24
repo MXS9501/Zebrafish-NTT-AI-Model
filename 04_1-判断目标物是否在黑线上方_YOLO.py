@@ -10,7 +10,7 @@ def detect_black_dashed_line(image):
 
     black_lines = []
     if lines is not None:
-        min_line_length_threshold = 500
+        min_line_length_threshold = 400
         for line in lines:
             x1, y1, x2, y2 = line[0]
             line_length = np.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
@@ -31,7 +31,7 @@ def is_target_above_line(target_bbox, lines):
     return False
 
 def main():
-    model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/train4/weights/best.pt")
+    model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/train15/weights/best.pt")
     folder_path = 'D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-1-300'
     for filename in os.listdir(folder_path):
         if filename.endswith('.jpg') or filename.endswith('.png'):
@@ -68,10 +68,10 @@ def main():
                         
                         cv2.imwrite(output_path, image)
                         
-                        # # 使用 cv2 显示结果图像
+                        # 使用 cv2 显示结果图像
                         # cv2.imshow('Detection Results', image)
                         # cv2.waitKey(200)  # 等待按键
-                        cv2.destroyAllWindows()  # 关闭所有窗口
+                        # cv2.destroyAllWindows()  # 关闭所有窗口
                      
 
 if __name__ == "__main__":

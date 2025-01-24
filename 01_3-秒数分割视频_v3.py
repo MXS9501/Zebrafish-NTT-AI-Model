@@ -41,7 +41,7 @@ def split_video_per_second(video_path, output_path):
     print(f"Total seconds: {second_count}")
 
 # 示例使用
-video_path = 'D:\\Test_File\\Test_3.mp4'  # 输入视频文件的路径
+video_path = 'D:\\Test_File\\Test_2.mp4'  # 输入视频文件的路径
 output_path = 'D:\\Test_File\\Output'  # 输出帧的存储路径
 split_video_per_second(video_path, output_path)
 
