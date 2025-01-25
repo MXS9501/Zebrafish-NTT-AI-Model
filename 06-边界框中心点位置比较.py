@@ -4,7 +4,7 @@ import glob
 import os
 
 # Load a pretrained YOLO model
-model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/Fish-with-backline4/weights/best.pt")
+model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/Fish-with-backline2/weights/best.pt")
 # Define path to the image files
 source = "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-3-300/*.jpg"
 # Define the output folder for 'above' images
@@ -48,7 +48,7 @@ for image_file in image_files:
         if blackline_center_y > zebrafish_center_y:
             position = 'above'
             above_count += 1
-            output_file = os.path.join(output_folder, os.path.basename(image_file))
+            # output_file = os.path.join(output_folder, os.path.basename(image_file))
             cv2.imwrite(output_file, result_image)
         elif blackline_center_y < zebrafish_center_y:
             position = 'below'
@@ -59,24 +59,38 @@ for image_file in image_files:
         # confidence = blackline_box.conf[0]
 
         # Draw the position and confidence on the blackline box
-        cv2.putText(result_image, f"{position}", (int(zebrafish_x1), int(zebrafish_y1) - 30),
-                    cv2.FONT_HERSHEY_TRIPLEX, 0.8, (0, 0, 255), 1)
-        
+        if position == 'above':
+            color = (0, 255, 0)  # Green
+        elif position == 'below':
+            color = (0, 0, 255)  # Red
+        else:
+            color = (255, 0, 0)  # Blue for overlap
 
+        cv2.putText(result_image, f"{position}", (int(zebrafish_x1), int(zebrafish_y1) - 30),
+                    cv2.FONT_HERSHEY_TRIPLEX, 0.8, color, 1)
         # Remove the code for displaying the result image
         cv2.imshow('Result', result_image)
-        cv2.waitKey(0)  # Wait for a key press to show the next image
-
+        cv2.waitKey(200)  # Wait for a key press to show the next image
 cv2.destroyAllWindows() 
 
+# from PyQt5.QtWidgets import QApplication, QMessageBox
+
+# if above_count > 0:
+#     app = QApplication([])
+#     msg_box = QMessageBox()
+#     msg_box.setWindowTitle("统计结果")
+#     msg_box.setText(f"总共有 {above_count} 张图片中斑马鱼在黑线之上。")
+#     msg_box.exec_()
+#     app.exec_()
+
 # Display the total count of 'above' positions
-print(f"Total 'above' positions: {above_count}")
+# print(f"Total 'above' positions: {above_count}")
 
 # Calculate the percentage of 'above' positions
-total_images = len(image_files)
-above_percentage = (above_count / total_images) * 100
+# total_images = len(image_files)
+# above_percentage = (above_count / total_images) * 100
 # Display the percentage of 'above' positions
-print(f"Percentage of 'above' positions: {above_percentage:.2f}%")
+# print(f"Percentage of 'above' positions: {above_percentage:.2f}%")
 
 # Remove the code for displaying the result image
 # cv2.imshow('Result', result_image)
