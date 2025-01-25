@@ -6,7 +6,7 @@ import os
 # Load a pretrained YOLO model
 model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/Fish-with-backline4/weights/best.pt")
 # Define path to the image files
-source = "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-2-300/*.jpg"
+source = "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-3-300/*.jpg"
 # Define the output folder for 'above' images
 output_folder = "D:/Test_File/Code/Zebrafish-NTT-AI-Model/above_images"
 # Create the output folder if it doesn't exist
@@ -63,9 +63,11 @@ for image_file in image_files:
                     cv2.FONT_HERSHEY_TRIPLEX, 0.8, (0, 0, 255), 1)
         
 
-                    # Remove the code for displaying the result image
-        # cv2.imshow('Result', result_image)
-        # cv2.waitKey()  # Wait for a key press to show the next image
+        # Remove the code for displaying the result image
+        cv2.imshow('Result', result_image)
+        cv2.waitKey(0)  # Wait for a key press to show the next image
+
+cv2.destroyAllWindows() 
 
 # Display the total count of 'above' positions
 print(f"Total 'above' positions: {above_count}")

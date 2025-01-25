@@ -3,7 +3,7 @@ import cv2
 import glob
 
 # Load a pretrained YOLO model
-model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/Fish-with-backline4/weights/best.pt")
+model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/train15/weights/best.pt")
 # Define path to the image files
 source = "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-1-300/*.jpg"
 
