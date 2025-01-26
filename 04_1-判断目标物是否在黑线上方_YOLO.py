@@ -31,7 +31,7 @@ def is_target_above_line(target_bbox, lines):
     return False
 
 def main():
-    model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/Fish-with-Backline2/weights/best.pt")
+    model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/train15 (Best for now)/weights/best.pt")
     folder_path = 'D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-3-300'
     for filename in os.listdir(folder_path):
         if filename.endswith('.jpg') or filename.endswith('.png'):
@@ -70,8 +70,8 @@ def main():
                         
                         # 使用 cv2 显示结果图像
                         cv2.imshow('Detection Results', image)
-                        cv2.waitKey(200)  # 等待按键
-                        cv2.destroyAllWindows()  # 关闭所有窗口
+                        cv2.waitKey(50)  # 等待按键
+                    cv2.destroyAllWindows()  # 关闭所有窗口
                      
 
 if __name__ == "__main__":

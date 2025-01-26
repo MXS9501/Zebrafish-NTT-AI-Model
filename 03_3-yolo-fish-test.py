@@ -3,7 +3,7 @@ import cv2
 import glob
 
 # Load a pretrained YOLO model
-model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/train15/weights/best.pt")
+model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/train15 (Best for now)/weights/best.pt")
 # Define path to the image files
 source = "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-1-300/*.jpg"
 
@@ -17,6 +17,6 @@ for image_file in image_files:
 
     # Display the result image
     cv2.imshow('Result', result_image)
-    cv2.waitKey(400)  # Wait for a key press to show the next image
+    cv2.waitKey(1)  # Wait for a key press to show the next image
 
 cv2.destroyAllWindows()
