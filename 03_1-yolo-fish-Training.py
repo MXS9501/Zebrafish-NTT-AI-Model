@@ -6,15 +6,10 @@ model = YOLO("yolo11n.yaml").load("yolo11n.pt")  # build from YAML file and tran
 # Train the model with verbose output to display training process
 results = model.train(
 	data="D:/Test_File/Code/Zebrafish-NTT-AI-Model/03_2-fishdataset.yaml",  # Path to the dataset configuration file
-	epochs=100,  # Number of training epochs
+	epochs=50,  # Number of training epochs
 	batch=1,  # Batch size
 	imgsz=640,  # Image size
 	name="train16", # Name of the model
-	device='cpu',
-    workers=8,
-    # pretrained Ture or False
-	pretrained=True,
-    verbose=True
 	)
 ############################################################################################################
 # @software{yolo11_ultralytics,

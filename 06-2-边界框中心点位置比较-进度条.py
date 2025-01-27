@@ -8,9 +8,11 @@ import time
 start_time = time.time()
 
 # Load a pretrained YOLO model
-model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/Fish-with-backline4 (best for now)/weights/best.pt")
+model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/train16/weights/best.pt")
 # Define path to the image files
-source = "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-2-300/*.jpg"
+# source = "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-1-300/*.jpg"
+source = "D:/Test_File/Output/*.jpg"
+
 ##############################################################################
 # Define the output folder for 'above' images
 # output_folder = "D:/Test_File/Code/Zebrafish-NTT-AI-Model/above_images"
@@ -24,14 +26,19 @@ image_files = glob.glob(source)
 # Initialize a counter for 'above' positions
 above_count = 0
 ##############################################################################
+# #Set the confidence threshold
+# confidence_threshold = 0.9
+##############################################################################
 # Initialize a progress bar
 with alive_bar(len(image_files)) as bar:
 ##############################################################################
 # Run inference on each image and display results
     for image_file in image_files:
-        results = model(image_file)  # list of Results objects
+        results = model.predict(image_file)  # list of Results objects
         result_image = results[0].plot()  # get the image with results
-
+##############################################################################        
+        # boxes = results[0].boxes[results[0].boxes.conf > confidence_threshold]
+##############################################################################
         # Get bounding boxes from the results
         boxes = results[0].boxes
         zebrafish_box = None
@@ -83,22 +90,22 @@ with alive_bar(len(image_files)) as bar:
 ##############################################################################  
         bar()
 ##############################################################################
-#         # Display the result image
-#         cv2.imshow('Result', result_image)
-#         cv2.waitKey(1)  # Wait for a key press to show the next image
-#     cv2.destroyAllWindows()
-# #############################################################################
-# from PyQt5.QtWidgets import QApplication, QMessageBox
-
-
-# if above_count > 0:
-#     app = QApplication([])
-#     msg_box = QMessageBox()
-#     msg_box.setWindowTitle("Counting Result")
-#     msg_box.setText(f"Total [-{above_count}-] Frames are above")
-#     msg_box.exec_()
-#     app.exec_()
+        # Display the result image
+        cv2.imshow('Result', result_image)
+        cv2.waitKey(1)  # Wait for a key press to show the next image
+    # cv2.destroyAllWindows()
 ##############################################################################
+from PyQt5.QtWidgets import QApplication, QMessageBox
+
+
+if above_count > 0:
+    app = QApplication([])
+    msg_box = QMessageBox()
+    msg_box.setWindowTitle("Counting Result")
+    msg_box.setText(f"Total [-{above_count}-] Frames are above")
+    msg_box.exec_()
+    # app.exec_()
+#############################################################################
 
 # 记录程序结束时间
 end_time = time.time()
@@ -109,4 +116,4 @@ total_time = end_time - start_time
 # 显示总用时
 print(f"程序运行总用时: {total_time} 秒")
 
-cv2.destroyAllWindows(1000)
+

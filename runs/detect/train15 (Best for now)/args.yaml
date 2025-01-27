@@ -90,12 +90,12 @@ degrees: 0.0
 translate: 0.1
 scale: 0.5
 shear: 0.0
-perspective: 0.0
-flipud: 0.0
+perspective: 0.5 # 透视变换概率
+flipud: 0.5 # 上下翻转概率
 fliplr: 0.5
 bgr: 0.0
 mosaic: 1.0
-mixup: 0.0
+mixup: 0.5 # 两张图像按一定比例混合的技术，可以提高模型的鲁棒性
 copy_paste: 0.0
 copy_paste_mode: flip
 auto_augment: randaugment

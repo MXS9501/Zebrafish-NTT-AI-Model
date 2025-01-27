@@ -25,7 +25,7 @@ def split_video_into_frames(video_path, output_path):
 
 
 # 示例使用
-video_path = 'D:/Test_File/Test_3.mp4'  # 输入视频文件的路径
+video_path = 'D:/Test_File/Test_1.mp4'  # 输入视频文件的路径
 output_path = 'D:/Test_File/Output'  # 输出帧的存储路径
 split_video_into_frames(video_path, output_path)
 
