@@ -8,10 +8,10 @@ import time
 start_time = time.time()
 
 # Load a pretrained YOLO model
-model = YOLO("D:/Test_File/Code/Zebrafish-NTT-AI-Model/runs/detect/train16/weights/best.pt")
+model = YOLO("D:/Zebrafish Project/Code/Zebrafish-NTT-AI-Model/runs/detect/train16/weights/best.pt")
 # Define path to the image files
 # source = "D:/Test_File/Code/Zebrafish-NTT-AI-Model/mydataset/test-1-300/*.jpg"
-source = "D:/Test_File/Output/*.jpg"
+source = "D:/Zebrafish Project/Code/Zebrafish-NTT-AI-Model/mydataset/test-1-300/*.jpg"
 
 ##############################################################################
 # Define the output folder for 'above' images
