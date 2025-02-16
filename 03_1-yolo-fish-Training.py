@@ -1,16 +1,23 @@
 from ultralytics import YOLO
-# Load a new model
-model = YOLO("yolo11n.yaml")  # build a new model from a YAML file
-model = YOLO("yolo11n.pt")  # load a pretrained model from a .pt file (recommended for training)
-model = YOLO("yolo11n.yaml").load("yolo11n.pt")  # build from YAML file and transfer weights from .pt file
-# Train the model with verbose output to display training process
-results = model.train(
-	data="D:/Test_File/Code/Zebrafish-NTT-AI-Model/03_2-fishdataset.yaml",  # Path to the dataset configuration file
-	epochs=50,  # Number of training epochs
-	batch=1,  # Batch size
-	imgsz=640,  # Image size
-	name="train16", # Name of the model
-	)
+
+def main():
+    # Load a new model
+    model = YOLO("yolo11n.yaml")  # build a new model from a YAML file
+    model = YOLO("yolo11n.pt")  # load a pretrained model from a .pt file (quick and easy, recommended for training)
+    model = YOLO("yolo11n.yaml").load("yolo11n.pt")  # build from YAML file and transfer weights from .pt file (allows customization of model architecture)
+    
+    # Train the model with verbose output to display training process
+    results = model.train(
+        data="D:/Zebrafish Project/Code/Zebrafish-NTT-AI-Model/03_2-fishdataset.yaml",  # Path to the dataset configuration file
+        epochs=50,  # Number of training epochs
+        batch=1,  # Batch size
+        imgsz=640,  # Image size
+        name="Fish-with-blackline_1", # Name of the model
+        device=0,  # Index of the GPU to use (0 for the first GPU)
+    )
+
+if __name__ == '__main__':
+    main()
 ############################################################################################################
 # @software{yolo11_ultralytics,
 #   author = {Glenn Jocher and Jing Qiu},
