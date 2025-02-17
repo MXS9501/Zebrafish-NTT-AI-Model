@@ -23,11 +23,11 @@ output_folder = 'D:/Zebrafish Project/Recordings/'
 # 如果输出文件夹不存在，则创建它
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
-# 设置输出路径
-output_path = f'{output_folder}recording_{timestamp}.avi'
+# 设置输出路径，修改文件扩展名为.mp4
+output_path = f'{output_folder}recording_{timestamp}.mp4'
 
-# 定义视频编码器和创建 VideoWriter 对象
-fourcc = cv2.VideoWriter_fourcc(*'XVID')
+# 定义视频编码器和创建 VideoWriter 对象，修改编码器为 MP4V
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 out = cv2.VideoWriter(output_path, fourcc, 20.0, (width, height))
 
 # 初始化变量

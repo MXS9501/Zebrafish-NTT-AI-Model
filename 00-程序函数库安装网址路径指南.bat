@@ -10,7 +10,7 @@ pip3 install PyQt5
 pip3 install alive_progress
 
 # 安装 ultralytics YOLOv11
-pip install ultralytics
+pip3 install ultralytics
 
 # Matplotlib: Visualization with Python
 pip3 install matplotlib
