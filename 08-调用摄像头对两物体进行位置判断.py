@@ -11,8 +11,8 @@ model = YOLO("D:/Zebrafish Project/Code/Zebrafish-NTT-AI-Model/runs/detect/Fish-
 cap = cv2.VideoCapture(0)
 
 # 设置摄像头分辨率
-width = 1280  # 设置宽度
-height = 720  # 设置高度
+width = 640  # 设置宽度
+height = 360  # 设置高度
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
 
